@@ -1,0 +1,19 @@
+{
+  "name": "echo-ai-orchestrator",
+  "version": "1.0.0",
+  "description": "ECHO PRIME Multi-AI Orchestrator — 30 LLM workers, smart dispatch, async builds",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail"
+  },
+  "dependencies": {
+    "hono": "^4.7.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250214.0",
+    "typescript": "^5.7.0",
+    "wrangler": "^4.0.0"
+  }
+}

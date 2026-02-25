@@ -1,0 +1,31 @@
+name = "echo-ai-orchestrator"
+main = "src/index.ts"
+compatibility_date = "2024-12-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+ENVIRONMENT = "production"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "echo-ai-orchestrator"
+database_id = "50f5714c-67fa-47e2-8f23-7540411c61e0"
+
+[[kv_namespaces]]
+binding = "CACHE"
+id = "d8ef14eb5aa54d7d83991e8718d3be62"
+
+[[r2_buckets]]
+binding = "R2"
+bucket_name = "echo-build-plans"
+
+[[queues.producers]]
+binding = "BUILD_QUEUE"
+queue = "ai-orchestrator-builds"
+
+[[queues.consumers]]
+queue = "ai-orchestrator-builds"
+max_batch_size = 1
+max_batch_timeout = 0
+max_retries = 3
+dead_letter_queue = "ai-orchestrator-dlq"
